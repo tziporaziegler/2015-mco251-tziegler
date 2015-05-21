@@ -1,0 +1,1 @@
+|array|array := #(16 2 8 6 4 10 18 14 20 12).Transcript show: array; cr.array selectionSort.Transcript show: array; cr.

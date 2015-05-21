@@ -1,0 +1,1 @@
+|array|array := Array new: 10.array at: 1 put: 0.array at: 2 put: 2.array at: 3 put: 4.array at: 4 put: 6.array at: 5 put: 8.array at: 6 put: 10.array at: 7 put: 12.array at: 8 put: 14.array at: 9 put: 16.array at: 10 put: 18.Transcript show: array.

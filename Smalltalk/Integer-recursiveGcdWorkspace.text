@@ -1,0 +1,1 @@
+|x gcd|x := 21.gcd := x recursiveGcd:x number:49.Transcript show: gcd; cr.
