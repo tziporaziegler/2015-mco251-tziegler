@@ -1,3 +1,5 @@
+require './cell.rb'
+
 class Grid
 
   def initialize(rows, columns)
@@ -7,7 +9,7 @@ class Grid
     (0...rows).each { |row|
       temp_array = Array.new # set up a Array that will represent a new row in a two dimensional grid
       (0...columns).each { |col|
-        temp_array.push ::Cell.new row, col # add a Cell to this Array
+        temp_array.push Cell.new row, col # add a Cell to this Array
       }
       @cells.push temp_array # add this new array to the Array of Arrays
     }
@@ -15,7 +17,7 @@ class Grid
 
   def set_grid(percentage, value)
     (0...@cells.size).each do |row|
-      n = @cells.fetch(row);
+      n = @cells.fetch(row)
       (0...n.size).each { |col|
         random_num = Random.rand(100)
         n.fetch(col).data = value if random_num < percentage
@@ -77,28 +79,6 @@ class Grid
       }
     }
     builder
-  end
-end
-
-class Cell
-  attr_writer :data
-  attr_reader :row
-  attr_reader :col
-  attr_accessor :visited
-
-  def initialize(row, col, data = nil)
-    @row = row
-    @col = col
-    @data = data
-    @visited = false
-  end
-
-  def to_string
-    @data == nil ? '-' : @data
-  end
-
-  def has_data
-    @data != nil
   end
 end
 
