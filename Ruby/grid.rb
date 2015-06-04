@@ -6,9 +6,9 @@ class Grid
     @cells = Array.new
 
     # initialize each cell of the grid
-    (0...rows).each { |row|
+    rows.times { |row|
       temp_array = Array.new # set up a Array that will represent a new row in a two dimensional grid
-      (0...columns).each { |col|
+      columns.times { |col|
         temp_array.push Cell.new row, col # add a Cell to this Array
       }
       @cells.push temp_array # add this new array to the Array of Arrays
@@ -16,9 +16,9 @@ class Grid
   end
 
   def set_grid(percentage, value)
-    (0...@cells.size).each do |row|
+    @cells.size.times do |row|
       n = @cells.fetch(row)
-      (0...n.size).each { |col|
+      n.size.times { |col|
         random_num = Random.rand(100)
         n.fetch(col).data = value if random_num < percentage
       }
@@ -28,9 +28,9 @@ class Grid
   def count_blobs
     count = 0
 
-    (0...@cells.size).each { |row|
+    @cells.size.times { |row|
       n = @cells.fetch(row)
-      (0...n.size - 1).each { |col|
+      (n.size - 1).times { |col|
         start_cell = n.fetch(col)
         puts "starting at cell [#{row}][#{col}]"
         if !start_cell.visited && start_cell.has_data
@@ -65,17 +65,17 @@ class Grid
   end
 
   def traverse (word, current_cell, row, col)
-    puts "moved #{word} from cell #{current_cell.to_string} #{current_cell.row} #{current_cell.col}"
+    puts "moved #{word} from cell #{current_cell.to_s} #{current_cell.row} #{current_cell.col}"
     mark_blob @cells.fetch(row).fetch(col)
   end
 
-  def to_string
+  def to_s
     builder = String.new
     (0...@cells.size - 1).each { |row|
       builder << "\n"
       n = @cells.fetch(row)
       (0...n.size - 1).each { |col|
-        builder << " #{n.fetch(col).to_string}"
+        builder << " #{n.fetch(col).to_s}"
       }
     }
     builder
@@ -84,6 +84,6 @@ end
 
 grid = Grid.new 10, 10
 grid.set_grid 40, 'X'
-puts grid.to_string
+puts grid.to_s
 puts grid.count_blobs
-puts grid.to_string
+puts grid.to_s

@@ -1,7 +1,6 @@
 class Cell
   attr_writer :data
-  attr_reader :row
-  attr_reader :col
+  attr_reader :row, :col
   attr_accessor :visited
 
   def initialize(row, col, data = nil)
@@ -11,7 +10,7 @@ class Cell
     @visited = false
   end
 
-  def to_string
+  def to_s
     @data == nil ? '-' : @data
   end
 
