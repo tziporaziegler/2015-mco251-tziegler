@@ -170,3 +170,25 @@ the_grid.set_grid(30,'x')
 puts the_grid.to_s #print to puts
 puts the_grid.count('x')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
