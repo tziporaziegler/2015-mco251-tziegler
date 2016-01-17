@@ -1,11 +1,7 @@
-/*
- * Caclculator
- *
-   by Rabbi Erlbaum
- */
+//by Rabbi Erlbaum
+
 public class FracCalc 
 {
-    
     EasyReader console = new EasyReader();
         
     private Fraction frac1,frac2;
@@ -69,8 +65,6 @@ public class FracCalc
             return false;
         frac2 = readFrac();
         return true;
-       
-            
     }
        
     private  Fraction add(Fraction f1, Fraction f2)
@@ -144,18 +138,4 @@ public class FracCalc
          
         return answer;
     }
-}                  
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-    
-
+}
