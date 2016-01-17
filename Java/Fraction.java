@@ -1,15 +1,7 @@
-/*
- * Fraction.java
- *
- * Created on November 11, 2003, 10:25 PM
- */
+//@author  Rabbi Erlbaum
 
-/**
-  * @author  Rabbi Erlbaum
- */
 public class Fraction 
 {
-    
     private int num,
                 denom;
     
@@ -73,7 +65,6 @@ public class Fraction
         return 1;
     }   
     
-        
     // reduces the fraction object
     public void reduce()
     {
@@ -95,5 +86,4 @@ public class Fraction
         num = denom;
         denom = temp;
     }
-            
  }
