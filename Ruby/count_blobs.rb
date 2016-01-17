@@ -21,6 +21,7 @@ class Cells
 end
 
 
+
 class Stack
   def initialize
     @store = Array.new
@@ -47,7 +48,6 @@ end
 
 
 
-
 class Count_blobs
   attr_accessor(:rows, :cols)
   def initialize(rows, cols)
@@ -63,9 +63,7 @@ class Count_blobs
       end
       @cells.push(temp)
     end
-
   end
-
 
   def set_grid(percentage, value) #setGrid to set_grid
     randomGenerator = Random.new
@@ -110,25 +108,23 @@ end
 
   def right(current_cell, row, col)
     if(current_cell.col != @cells.fetch(row).size() - 1)
-      temp_cell = @cells.fetch(row).fetch(col+1) # remove temp_cell = nil and change tempCell to temp_cell
-    if(!temp_cell.visited && temp_cell.data)
-      @stack.push(temp_cell)
+        temp_cell = @cells.fetch(row).fetch(col+1) # remove temp_cell = nil and change tempCell to temp_cell
+        if(!temp_cell.visited && temp_cell.data)
+            @stack.push(temp_cell)
+        end
+        temp_cell.visited
     end
-    temp_cell.visited
-    end
-
   end
 
   def left(current_cell, row, col)
     if(current_cell.col != 0)
-      temp_cell = @cells.fetch(row).fetch(col-1)
-    if(!temp_cell.visited && temp_cell.has_data) #Data to has_data
-      @stack.push(temp_cell)
-    end
-    temp_cell.visited
+        temp_cell = @cells.fetch(row).fetch(col-1)
+        if(!temp_cell.visited && temp_cell.has_data) #Data to has_data
+            @stack.push(temp_cell)
+        end
+        temp_cell.visited
     end
   end
-
 
   def up(current_cell, row, col)
     if(current_cell.row != 0)
@@ -139,8 +135,6 @@ end
       temp_cell.visited
     end
   end
-
-
 
   def down(current_cell, row, col)
     if(current_cell.row != @cells.size-1) #Row to row
@@ -154,41 +148,21 @@ end
   end
 
   def to_s
-  string = String.new
-  (0...@cells.size - 1).each do |i| # change row to @cells.size - 1 + do .each
-    (0...@cells.fetch(i).size - 1).each do |j|
-        string << @cells.fetch(i).fetch(j).to_s #fetch + change to Cell.to_s instead of if/else
+    string = String.new
+    (0...@cells.size - 1).each do |i| # change row to @cells.size - 1 + do .each
+        (0...@cells.fetch(i).size - 1).each do |j|
+            string << @cells.fetch(i).fetch(j).to_s #fetch + change to Cell.to_s instead of if/else
+        end
+        string << "\n"
     end
-    string << "\n"
+      
+    return string
   end
-  return string
-  end
+  
 end
+
 
 the_grid = Count_blobs.new(10,10) #theGrid to the_grid
 the_grid.set_grid(30,'x')
 puts the_grid.to_s #print to puts
 puts the_grid.count('x')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
